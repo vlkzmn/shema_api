@@ -1,24 +1,19 @@
-import jwt from 'jsonwebtoken'; // подключаем библиотеку для генерации и валидации token 
+import jwt from "jsonwebtoken";
 
 function generateAccessToken(user) {
-  return jwt.sign(user, process.env.JWT_ACCESS_SECRET, { expiresIn: '10m' });
-  // первым параметром принимает объект с данными который будет зашифрован
-  // вторым секретный ключ для шифрования
-  // третим можно передать время жизни token 
+  return jwt.sign(user, process.env.JWT_ACCESS_SECRET, { expiresIn: "10m" });
 }
 
 function validateAccessToken(token) {
   try {
     return jwt.verify(token, process.env.JWT_ACCESS_SECRET);
-    // для валидации передаем сам token и ключ которым шифровали, 
-    // метод варификации возвращает объект который был передан при генерации
   } catch (error) {
     return null;
   }
 }
 
 function generateRefreshToken(user) {
-  return jwt.sign(user, process.env.JWT_REFRESH_SECRET, { expiresIn: '60d' });
+  return jwt.sign(user, process.env.JWT_REFRESH_SECRET, { expiresIn: "60d" });
 }
 
 function validateRefreshToken(token) {
@@ -29,7 +24,7 @@ function validateRefreshToken(token) {
   }
 }
 
-export const jwtService = { 
+export const jwtService = {
   generateAccessToken,
   generateRefreshToken,
   validateAccessToken,

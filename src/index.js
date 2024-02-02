@@ -1,4 +1,4 @@
-import "dotenv/config"; // подключение файла .env
+import "dotenv/config";
 import cors from "cors";
 import express from "express";
 import cookieParser from "cookie-parser";
@@ -12,15 +12,15 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL, //  определяет, какие домены имеют право делать запрос на сервер
-    credentials: true, // указывает, может ли браузер включать куки в запрос
+    origin: process.env.CLIENT_URL,
+    credentials: true,
   })
 );
 
-app.use(cookieParser()); // стороннее middleware которое позволяет обрабатывать cookies во всех запросах
+app.use(cookieParser());
 app.use(express.json());
 app.use(authRouter);
 app.use("/result", resultRouter);
-app.use(errorMiddleware); // кастомное middleware для обработки ошибок, должен быть в конце после всех middleware
+app.use(errorMiddleware);
 
 app.listen(PORT, () => console.log("Server is running"));

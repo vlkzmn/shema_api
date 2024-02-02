@@ -70,7 +70,7 @@ export function getPdfTranslate(lang) {
 
   switch (lang) {
     case "ua":
-      data.title = "Результат тестування";
+      data.title = "Результат тестування для";
       data.shema = "Назва схеми";
       data.answers = "Відповіді";
       data.sum = "Сума";
@@ -78,15 +78,15 @@ export function getPdfTranslate(lang) {
       data.sum5and6 = "5 та 6";
       break;
     case "ru":
-      data.title = "Результат тестирования";
+      data.title = "Результат тестирования для";
       data.shema = "Название схемы";
       data.answers = "Ответы";
-      data.sum = "сумма";
+      data.sum = "Cумма";
       data.percent = "Процент";
       data.sum5and6 = "5 и 6";
       break;
     default:
-      data.title = "The test result";
+      data.title = "The test result for";
       data.shema = "Schema Name";
       data.answers = "Answers";
       data.sum = "Sum";
@@ -104,21 +104,21 @@ export function getEmailTranslate(lang) {
     case "ua":
       data.subject = "Результат схемного опитувальника";
       data.html = `
-       <p>Результат тестування у прикріпленому до листа файлі.</p>
+       <h2>Результат тестування у прикріпленому до листа файлі.</h2>
       `;
       data.text = "Результат тестування у прикріпленому до листа файлі.";
       break;
     case "ru":
       data.subject = "Результат схемного опросника";
       data.html = `
-       <p>Результат тестирования в прикрепленном к письму файле.</p>
+       <h2>Результат тестирования в прикрепленном к письму файле.</h2>
       `;
       data.text = "Результат тестирования в прикрепленном к письму файле.";
       break;
     default:
       data.subject = "Schema Questionnaire Result";
       data.html = `
-       <p>The test result is in the file attached to the letter.</p>
+       <h2>The test result is in the file attached to the letter.</h2>
       `;
       data.text = "The test result is in the file attached to the letter.";
   }
